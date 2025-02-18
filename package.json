@@ -1,7 +1,7 @@
 {
   "name": "reactjs-vite-tailwind-vercel",
   "version": "1.0.0",
-  "description": "ReactJS app with Vite, Tailwind",
+  "description": "Smart Energy Savings Calculator – Solar & Wind Edition",
   "type": "module",
   "scripts": {
     "dev": "vite",

@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-import GameScreen from './screens/GameScreen';
+import CalculatorScreen from './screens/CalculatorScreen';
 import * as Sentry from '@sentry/browser';
 
 export default function App() {
-  const [gameStarted, setGameStarted] = useState(false);
+  const [calculatorStarted, setCalculatorStarted] = useState(false);
   const [startButtonDisabled, setStartButtonDisabled] = useState(false);
 
-  const handleStartGame = () => {
+  const handleStartCalculation = () => {
     if (!startButtonDisabled) {
-      console.log('Starting AI Detective Game');
+      console.log('Starting Smart Energy Savings Calculator');
       setStartButtonDisabled(true);
-      // Simulate a short delay before starting the game
+      // Simulate a short delay before showing the calculator
       setTimeout(() => {
-        setGameStarted(true);
+        setCalculatorStarted(true);
         setStartButtonDisabled(false);
       }, 500);
     }
@@ -20,23 +20,23 @@ export default function App() {
 
   return (
     <div className="min-h-screen text-gray-900 flex flex-col">
-      {!gameStarted && (
+      {!calculatorStarted && (
         <div className="flex-1 flex flex-col justify-center items-center px-4">
-          <h1 className="text-5xl font-bold mb-4">AI Detective Game</h1>
+          <h1 className="text-5xl font-bold mb-4">Smart Energy Savings Calculator – Solar & Wind Edition</h1>
           <p className="text-lg mb-8 text-center max-w-2xl">
-            Solve mysteries by questioning AI-generated suspects with unique personalities.
-            Use voice recognition to interrogate and uncover clues that lead to multiple thrilling endings.
+            Estimate your energy savings, cost reductions, and environmental impact when switching to solar and wind energy.
+            Input your monthly energy consumption, electricity cost, location details, roof size, and average wind speed to get started.
           </p>
           <button
-            onClick={handleStartGame}
+            onClick={handleStartCalculation}
             className="cursor-pointer bg-blue-600 text-white px-6 py-3 rounded-md shadow-lg hover:bg-blue-700 active:opacity-75 disabled:opacity-50"
             disabled={startButtonDisabled}
           >
-            Start Game
+            Start Calculation
           </button>
         </div>
       )}
-      {gameStarted && <GameScreen />}
+      {calculatorStarted && <CalculatorScreen />}
       <footer className="p-4 text-center">
         <a href="https://www.zapt.ai" target="_blank" rel="noreferrer" className="text-sm text-blue-600">
           Made on ZAPT
